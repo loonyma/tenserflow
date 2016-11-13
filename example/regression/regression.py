@@ -95,7 +95,6 @@ if flag == "1":
     save_path = saver.save(sess, "regression.ckpt")
     print ("Model saved in file: ", save_path)
 else:
-    print("444444444")
     saver.restore(sess, "/home/loony/work/tenserflow/example/regression/regression.ckpt")
 #prediction_value = sess.run(prediction, feed_dict={xs: x_data})
     try:
