@@ -68,6 +68,7 @@ cross_entropy = tf.reduce_mean(-tf.reduce_sum(ys * tf.log(prediction),
 train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 
 sess = tf.Session()
+saver = tf.train.Saver()
 # important step
 sess.run(tf.initialize_all_variables())
 
@@ -77,4 +78,5 @@ for i in range(1000):
     if i % 50 == 0:
         print(compute_accuracy(
             mnist.test.images, mnist.test.labels))
-
+save_path = saver.save(sess, "/tmp/jnbcnn.ckpt")
+print ("Model saved in file: ", save_path)
